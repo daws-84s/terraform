@@ -11,7 +11,7 @@ variable "instance_type" {
 variable "ec2_tags" {
   type = map(string)
   default = {
-    Name    = "Roboshop"
+    Name    = "HelloWorld"
     Purpose = "variables-demo"
   }
 }
@@ -44,18 +44,19 @@ variable "sg_tags" {
   }
 }
 
-variable "environment" {
-  default = "prod"
-}
-
-variable "instances" {
-  default = ["mongodb", "redis", "mysql", "rabbitmq"]
-}
-
-variable "zone_id" {
-  default = "Z032558618100M4EJX8X4"
-}
-
-variable "domain_name" {
-  default = "daws84s.site"
+variable "ingress_ports" {
+  default = [ # list(map)
+    {
+      from_port = 22
+      to_port   = 22
+    },
+    {
+      from_port = 80
+      to_port   = 80
+    },
+    {
+      from_port = 8080
+      to_port   = 8080
+    }
+  ]
 }

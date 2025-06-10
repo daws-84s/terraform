@@ -11,7 +11,7 @@ variable "instance_type" {
 variable "ec2_tags" {
     type = map(string)
     default = {
-        Name = "HelloWorld"
+        Name = "Roboshop"
         Purpose = "variables-demo"
     }
 }
@@ -41,5 +41,28 @@ variable "cidr_blocks" {
 variable "sg_tags" {
     default = {
         Name = "allow-all"
+    }
+}
+
+variable "environment" {
+    default = "prod"
+}
+
+variable "instances" {
+    default = ["mongodb", "redis", "mysql", "rabbitmq"]
+}
+
+variable "zone_id" {
+    default = "Z032558618100M4EJX8X4"
+}
+
+variable "domain_name" {
+    default = "daws84s.site"
+}
+
+variable "common_tags"{
+    default = {
+        Project = "roboshop"
+        Terraform = "true"
     }
 }
