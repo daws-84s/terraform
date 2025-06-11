@@ -8,7 +8,7 @@ resource "aws_instance" "roboshop" {
     Name = var.instances[count.index]
   }
 }
-
+# ALLOW ALL SG
 resource "aws_security_group" "allow_all" {
   name        = var.sg_name
   description = var.sg_description
